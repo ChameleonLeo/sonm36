@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100vh;
+}
+body {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+}
+.container {
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+.header {
+  background: rgba(0, 0, 0, .8);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+}
+.logo {
+  color: rgba(102, 205, 170, 0.6);
+  font-size: 36px;
+  padding: 15px;
+}
+.content {
+  max-width: 750px;
+  background-color: rgba(102, 205, 170, 0.3);
+  border-radius: 10px;
+}
+h1 {
+  font-size: 25px;
+  text-align: center;
+  padding-top: 20px;
+}
+.artists {
+  margin: 20px;
+}
+.artist {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+.btn {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px;
+}
+.submit {
+  float: right;
+  margin: 20px;
+}
+.bt {
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+.list-artist-table {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+.list-artist-table th {
+  height: 40px;
+}
+.list-artist-table td {
+  padding: 10px 70px;
+}
+table {
+  border-collapse: collapse;
+  border-style: hidden;
+}

@@ -1,0 +1,59 @@
+{% extends "artbase/base.html" %}
+
+{% block content %}
+<div class="content">
+    <h1>Add to Artists base</h1>
+    <div class="artists">
+    <form id="form-container" action="" method="post">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        <div class="form-err">{{ artistformset.non_field_errors }}</div>
+        {% for form in formset %}
+            <div class="form-row">
+                <table>
+                    <tr>
+                        <td>{{ form.name.label_tag }} {{ form.name }} |</td>
+                        <td>{{ form.band.label_tag }} {{ form.band }} |</td>
+                        <td>{{ form.genre.label_tag }} {{ form.genre }}</td>
+                    </tr>
+                </table>
+            <br>
+            </div>
+        {% endfor %}
+        <button id="add-form-row" class="btn">Add artist</button><br><br>
+
+        <input class="btn submit" type="submit" value="Save to base">
+    </form>
+    </div>
+</div>
+    <script type='text/javascript'>
+        let container = document.querySelector("#form-container")
+        let form_row = document.querySelectorAll(".form-row")
+        let add_row = document.querySelector("#add-form-row")
+        let delete_row = document.querySelector("#remove-form-row")
+        let total_forms = document.querySelector("#id_form-TOTAL_FORMS")
+
+        let rows_q = form_row.length - 1
+        add_row.addEventListener('click', addForm)
+        delete_row.addEventListener('click', deleteForm)
+
+        function addForm(e) {
+            e.preventDefault()
+
+            let new_row = form_row[0].cloneNode(true)
+            let row_regex = RegExp(`form-(\\d){1}-`, 'g')
+            rows_q++
+            new_row.innerHTML = new_row.innerHTML.replace(row_regex, `form-${rows_q}-`)
+            container.insertBefore(new_row, add_row)
+
+            total_forms.setAttribute('value', `${rows_q + 1}`)
+        }
+
+        function deleteForm(e) {
+            e.preventDefault()
+
+            let del_row = document.getElementsByClassName(``)
+            del_row.remove()
+        }
+    </script>
+{% endblock %}

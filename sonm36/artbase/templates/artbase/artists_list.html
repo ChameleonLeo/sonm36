@@ -1,0 +1,28 @@
+{% extends "artbase/base.html" %}
+
+{% block content %}
+    <div class="content">
+    <h1>List of Artists</h1>
+    <div class="artists">
+        <table class="list-artist-table">
+            <tr>
+                <th>Artist name</th>
+                <th>Band</th>
+                <th>Genre</th>
+            </tr>
+            {% for artist in artists %}
+            <tr>
+                {% with artist.info|jsonify as info %}
+                {% if info.name %}
+                <td>{{ info.name }}</td>
+                <td>{{ info.band }}</td>
+                <td>{{ info.genre }}</td>
+                {% endif %}
+                {% endwith %}
+            </tr>
+            {% endfor %}
+        </table>
+        <a class="btn submit bt" href="{% url 'artbase:add' %}">Add artists</a>
+    </div>
+    </div>
+{% endblock %}
